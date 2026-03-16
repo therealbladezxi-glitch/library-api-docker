@@ -27,9 +27,9 @@ public class Book {
     @Column(nullable = false)
     private String title;
     @Column(nullable = false)
-    private String author;
-    @Column(nullable = true)
-    private LocalDate releaseYear;
+    private String authorName;
+    private String publisher;
+    private Integer releaseYear;
     @Column(nullable = false)
-    private int copies;
+    private int totalCopies;
 }
