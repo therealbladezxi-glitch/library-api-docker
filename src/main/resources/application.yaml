@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: library-api-docker
+  datasource:
+    url: jdbc:postgresql://localhost:5432/librarydb
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+springdoc:
+  override-with-generic-response: false
