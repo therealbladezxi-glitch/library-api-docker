@@ -31,5 +31,5 @@ public class Book {
     private String publisher;
     private Integer releaseYear;
     @Column(nullable = false)
-    private int totalCopies;
+    private Integer totalCopies;
 }
