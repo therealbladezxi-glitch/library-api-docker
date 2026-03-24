@@ -13,15 +13,20 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler({UserNotFoundException.class, BookNotFoundException.class})
-    public ResponseEntity<ErrorResponse> handleUserNotFound(UserNotFoundException ex){
+    @ExceptionHandler({UserNotFoundException.class, BookNotFoundException.class, LoanNotFoundException.class})
+    public ResponseEntity<ErrorResponse> handleNotFound(RuntimeException ex){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse(HttpStatus.NOT_FOUND.value(), ex.getMessage(), LocalDateTime.now()));
     }
 
-//    @ExceptionHandler(BookNotFoundException.class)
-//    public ResponseEntity<ErrorResponse> handleBookNotFound(BookNotFoundException ex){
-//        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse(HttpStatus.NOT_FOUND.value(), ex.getMessage(), LocalDateTime.now()));
-//    }
+    @ExceptionHandler({NoAvailableCopiesException.class, MailAlreadyInUseException.class, LoanAlreadyReturnedException.class})
+    public ResponseEntity<ErrorResponse> handleConflict(RuntimeException ex){
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(new ErrorResponse(HttpStatus.CONFLICT.value(), ex.getMessage(), LocalDateTime.now()));
+    }
+
+    @ExceptionHandler(UserInactiveException.class)
+    public ResponseEntity<ErrorResponse> handleInactiveUser(UserInactiveException ex){
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ErrorResponse(HttpStatus.FORBIDDEN.value(), ex.getMessage(), LocalDateTime.now()));
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidation(MethodArgumentNotValidException ex){

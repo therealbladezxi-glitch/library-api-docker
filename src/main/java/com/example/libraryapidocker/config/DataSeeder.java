@@ -2,6 +2,7 @@ package com.example.libraryapidocker.config;
 
 import com.example.libraryapidocker.model.Book;
 import com.example.libraryapidocker.model.User;
+import com.example.libraryapidocker.model.UserStatus;
 import com.example.libraryapidocker.model.UserType;
 import com.example.libraryapidocker.repository.BookRepository;
 import com.example.libraryapidocker.repository.UserRepository;
@@ -38,6 +39,7 @@ public class DataSeeder implements ApplicationRunner {
             superUser.setPass("pass");
             superUser.setMemberShipDate(LocalDate.now());
             superUser.setUserType(UserType.SUPER);
+            superUser.setUserStatus(UserStatus.ACTIVE);
             userRepository.save(superUser);
         }
     }

@@ -5,6 +5,7 @@ import com.example.libraryapidocker.dto.response.UserResponseDTO;
 import com.example.libraryapidocker.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +34,7 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<UserResponseDTO> saveUser(@Valid @RequestBody UserRequestDTO userRequestDTO){
-        return ResponseEntity.status(201).body(userService.createUser(userRequestDTO));
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(userRequestDTO));
     }
 
     @DeleteMapping("/{id}")

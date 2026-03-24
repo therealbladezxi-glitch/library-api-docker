@@ -1,5 +1,6 @@
 package com.example.libraryapidocker.dto.response;
 
+import com.example.libraryapidocker.model.UserStatus;
 import com.example.libraryapidocker.model.UserType;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,4 +16,5 @@ public class UserResponseDTO {
     private String mail;
     private UserType userType;
     private LocalDate memberShipDate;
+    private UserStatus userStatus;
 }

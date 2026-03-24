@@ -12,7 +12,9 @@ import java.util.UUID;
 public class LoanResponseDTO {
     private Long id;
     private Long userId;
+    private String userName;
     private UUID bookIsbn;
+    private String bookTitle;
     private LocalDate loanDate;
     private LocalDate dueDate;
     private LocalDate returnDate;

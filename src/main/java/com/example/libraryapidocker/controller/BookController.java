@@ -30,16 +30,6 @@ public class BookController {
         return ResponseEntity.ok(bookService.getBookByIsbn(isbn));
     }
 
-//    @GetMapping("/search")
-//    public List<BookResponseDTO> getBookByTitle(@RequestParam String title){
-//        return bookService.getBookByTitle(title);
-//    }
-//
-//    @GetMapping("/search")
-//    public List<BookResponseDTO> getBookByAuthorName(@RequestParam String authorName){
-//        return bookService.getBookByAuthor(authorName);
-//    }
-
     @GetMapping("/search")
     public List<BookResponseDTO> searchBooks(
             @RequestParam(required = false) String title,

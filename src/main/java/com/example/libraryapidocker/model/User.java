@@ -28,7 +28,7 @@ public class User {
     @Column(nullable = false)
     private String surname;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String mail;
 
     @Column(nullable = false)
@@ -39,5 +39,9 @@ public class User {
     private UserType userType;
 
     private LocalDate memberShipDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserStatus userStatus;
 
 }
